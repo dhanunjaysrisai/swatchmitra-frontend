@@ -1,0 +1,256 @@
+/* Mission Page Styles - Dark Blue Design */
+
+/* Mission Banner Section */
+.mission-banner {
+  background: #000000;
+  min-height: 100vh;
+  padding: 80px 20px 40px;
+  position: relative;
+  overflow: hidden;
+}
+
+.mission-banner-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  min-height: 70vh;
+  gap: 4rem;
+}
+
+/* Left Side - India Map */
+.mission-left {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.map-video-container {
+  width: 100%;
+  max-width: 400px;
+  height: 500px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.map-video {
+  width: 110%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 15px;
+  /* box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3); */
+}
+
+/* Right Side - Mission Content */
+.mission-right {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.mission-text {
+  color: white;
+  position: relative;
+}
+
+.mission-background-image {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-39%, -54%);
+  width: 100%;
+  max-width: 600px;
+  height: auto;
+  opacity: 0.4;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.mission-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 1.5rem;
+  color: white;
+  position: relative;
+  z-index: 2;
+}
+
+.mission-highlight {
+  font-size: 2.8rem;
+  font-weight: 800;
+  color: #FFD700;
+  display: block;
+  margin-top: 0.5rem;
+}
+
+.mission-description {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  color: #E0E6ED;
+  margin-bottom: 2rem;
+  max-width: 500px;
+}
+
+.mission-cta-button {
+  display: inline-block;
+  background: #28A745;
+  color: white;
+  padding: 15px 30px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(40, 167, 69, 0.3);
+}
+
+.mission-cta-button:hover {
+  background: #218838;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(40, 167, 69, 0.4);
+  color: white;
+  text-decoration: none;
+}
+
+
+.mission-hero-img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  max-height: 400px;
+  object-fit: cover;
+}
+
+/* Statistics Section */
+.mission-stats {
+  display: flex;
+  justify-content: center;
+  gap: 4rem;
+  margin-top: 4rem;
+  padding: 2rem 0;
+}
+
+.stat-item {
+  text-align: center;
+  color: white;
+}
+
+.stat-label {
+  font-size: 1rem;
+  color: #B0B8C8;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+
+.stat-value {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: white;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Animations */
+@keyframes neonPulse {
+  0% {
+    filter: drop-shadow(0 0 5px rgba(255, 165, 0, 0.3));
+    stroke-width: 3;
+  }
+  100% {
+    filter: drop-shadow(0 0 20px rgba(0, 191, 255, 0.6));
+    stroke-width: 4;
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .mission-banner-content {
+    flex-direction: column;
+    text-align: center;
+    gap: 3rem;
+    height: 20px;
+  }
+  
+  .mission-left {
+    order: 2;
+    bottom: 25rem;
+    opacity: 0.7;
+  }
+  
+  .mission-right {
+    order: 1;
+  }
+  
+  .india-map-outline {
+    max-width: 300px;
+    height: 400px;
+  }
+}
+
+@media (max-width: 768px) {
+  /* .map-video{
+    position: relative;
+    top: 100px;
+  } */
+  /* .map-video-container{
+    bottom: 25rem;
+  } */
+  .mission-background-image{
+    display: none;
+  }
+  .mission-banner {
+    padding: 60px 15px 30px;
+  }
+  
+  .mission-title {
+    font-size: 2rem;
+  }
+  
+  .mission-highlight {
+    font-size: 2.2rem;
+  }
+  
+  .mission-description {
+    font-size: 1.1rem;
+  }
+  
+  .mission-stats {
+    flex-direction: column;
+    gap: 2rem;
+  }
+  
+  .stat-value {
+    font-size: 2rem;
+  }
+  
+  .india-map-outline {
+    max-width: 250px;
+    height: 320px;
+  }
+}
+
+@media (max-width: 480px) {
+  .mission-title {
+    font-size: 1.8rem;
+  }
+  
+  .mission-highlight {
+    font-size: 2rem;
+  }
+  
+  .mission-cta-button {
+    padding: 12px 24px;
+    font-size: 1rem;
+  }
+  
+  .stat-value {
+    font-size: 1.8rem;
+  }
+}

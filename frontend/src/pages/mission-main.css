@@ -1,0 +1,411 @@
+/* Mission main section + scratch reward modal */
+
+.mission-main {
+  background: #000000;
+  padding: 80px 16px 110px;
+  position: relative;
+  overflow: hidden;
+}
+
+.mission-main::before {
+  content: '';
+  position: absolute;
+  inset: -40px -40px auto -40px;
+  height: 220px;
+  background: radial-gradient(circle at 20% 20%, rgba(255, 122, 0, 0.25) 0%, transparent 55%),
+    radial-gradient(circle at 65% 10%, rgba(22, 163, 74, 0.22) 0%, transparent 45%);
+  pointer-events: none;
+}
+
+.mission-main-inner {
+  position: relative;
+  z-index: 1;
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.mission-main-copy {
+  flex: 1.2;
+  min-width: 280px;
+}
+
+.mission-main-title {
+  color: white;
+  font-size: 2.2rem;
+  font-weight: 900;
+  margin: 0 0 12px;
+  letter-spacing: -0.02em;
+}
+
+.mission-main-text {
+  margin: 0;
+  font-size: 1.15rem;
+  line-height: 1.8;
+  color: #E0E6ED;
+}
+
+.mission-main-actions {
+  flex: 0.8;
+  min-width: 280px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 16px;
+}
+
+.mission-camera-input {
+  display: none;
+}
+
+.mission-camera-button {
+  width: 260px;
+  max-width: 100%;
+  border: none;
+  cursor: pointer;
+  font-weight: 900;
+  font-size: 1.05rem;
+  color: white;
+  padding: 14px 18px;
+  border-radius: 14px;
+  background: linear-gradient(90deg, #ff7a00 0%, #16a34a 100%);
+  box-shadow: 0 18px 40px rgba(255, 122, 0, 0.18);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.mission-camera-button:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 22px 55px rgba(255, 122, 0, 0.26);
+}
+
+.mission-camera-button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.mission-camera-icon {
+  margin-right: 10px;
+}
+
+.mission-login-hint {
+  margin: 0;
+  max-width: 520px;
+  font-size: 0.92rem;
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.72);
+  text-align: right;
+}
+
+.mission-login-hint strong {
+  color: rgba(255, 255, 255, 0.92);
+  font-weight: 800;
+}
+
+@media (max-width: 900px) {
+  .mission-login-hint {
+    text-align: left;
+  }
+}
+
+.mission-model-error {
+  max-width: 520px;
+  color: #ffd1d1;
+  background: rgba(255, 0, 0, 0.14);
+  border: 1px solid rgba(255, 0, 0, 0.28);
+  padding: 12px 14px;
+  border-radius: 12px;
+  line-height: 1.5;
+}
+
+.mission-camera-panel {
+  width: min(520px, 100%);
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(255, 255, 255, 0.05);
+  overflow: hidden;
+}
+
+.mission-camera-preview {
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+  display: block;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.mission-camera-canvas {
+  display: none;
+}
+
+.mission-camera-controls {
+  display: flex;
+  gap: 10px;
+  padding: 12px;
+  justify-content: flex-end;
+}
+
+.mission-capture-button,
+.mission-stop-button {
+  border: none;
+  cursor: pointer;
+  font-weight: 900;
+  padding: 10px 14px;
+  border-radius: 12px;
+  color: #0b1220;
+}
+
+.mission-capture-button {
+  background: linear-gradient(90deg, #ff7a00 0%, #16a34a 100%);
+}
+
+.mission-stop-button {
+  background: rgba(255, 255, 255, 0.85);
+}
+
+.mission-capture-button:disabled,
+.mission-stop-button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+/* ================= Scratch Reward Modal ================= */
+.scratch-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 18px;
+}
+
+.scratch-modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.62);
+  backdrop-filter: blur(4px);
+}
+
+.scratch-card {
+  position: relative;
+  width: min(560px, 100%);
+  background: radial-gradient(circle at 20% 0%, rgba(255, 122, 0, 0.25) 0%, rgba(15, 23, 42, 0.98) 35%),
+    linear-gradient(180deg, rgba(15, 23, 42, 1) 0%, rgba(3, 7, 18, 1) 100%);
+  border-radius: 22px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  box-shadow: 0 40px 120px rgba(0, 0, 0, 0.6);
+  overflow: hidden;
+}
+
+.scratch-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  cursor: pointer;
+  color: white;
+  background: rgba(255, 255, 255, 0.06);
+  font-weight: 900;
+  transition: transform 0.15s ease, background 0.15s ease;
+}
+
+.scratch-close:hover {
+  transform: translateY(-1px);
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.scratch-card-body {
+  padding: 24px 18px 18px;
+  color: white;
+}
+
+.scratch-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 0 8px;
+  margin-bottom: 12px;
+}
+
+.scratch-badge {
+  font-weight: 950;
+  font-size: 0.95rem;
+  color: #ffffff;
+  padding: 8px 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: linear-gradient(90deg, rgba(255, 122, 0, 0.22) 0%, rgba(22, 163, 74, 0.18) 100%);
+}
+
+.scratch-percentage {
+  font-weight: 900;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.scratch-card-inner {
+  position: relative;
+  height: 220px;
+  margin: 0 8px;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: linear-gradient(135deg, rgba(255, 122, 0, 0.16) 0%, rgba(16, 185, 129, 0.12) 100%);
+  overflow: hidden;
+}
+
+.scratch-reveal {
+  height: 100%;
+  width: 100%;
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 0;
+  position: relative;
+  text-align: center;
+}
+
+.scratch-title {
+  color: rgba(255, 255, 255, 0.8);
+  font-weight: 800;
+  margin-bottom: 6px;
+}
+
+.scratch-points {
+  font-size: 3rem;
+  font-weight: 950;
+  line-height: 1;
+  color: #ffffff;
+  margin-bottom: 8px;
+}
+
+.scratch-label {
+  color: rgba(255, 255, 255, 0.78);
+  font-weight: 750;
+  margin-top: 6px;
+}
+
+.scratch-view-btn {
+  margin-top: 14px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 14px;
+  border-radius: 12px;
+  font-weight: 900;
+  text-decoration: none;
+  color: #0b1220;
+  background: linear-gradient(90deg, #ff7a00 0%, #16a34a 100%);
+  box-shadow: 0 18px 40px rgba(255, 122, 0, 0.18);
+}
+
+.scratch-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  cursor: grab;
+  z-index: 1;
+  touch-action: none;
+}
+
+.scratch-instruction {
+  margin-top: 14px;
+  color: rgba(255, 255, 255, 0.72);
+  font-weight: 700;
+  text-align: center;
+  padding: 0 16px;
+}
+
+.scratch-revealed-text {
+  margin-top: 14px;
+  color: rgba(255, 255, 255, 0.92);
+  font-weight: 900;
+  text-align: center;
+}
+
+@media (max-width: 900px) {
+  .mission-main-inner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .mission-main-actions {
+    align-items: flex-start;
+    width: 100%;
+  }
+}
+
+@media (max-width: 600px) {
+  .mission-main {
+    padding: 56px 12px 88px;
+    padding-bottom: calc(88px + env(safe-area-inset-bottom, 0px));
+  }
+
+  .mission-main-title {
+    font-size: 1.55rem;
+  }
+
+  .mission-main-text {
+    font-size: 1rem;
+  }
+
+  .mission-camera-button {
+    width: 100%;
+    max-width: none;
+    padding: 16px 18px;
+    font-size: 1rem;
+  }
+
+  .mission-camera-panel {
+    width: 100%;
+    max-width: none;
+  }
+
+  .mission-camera-preview {
+    height: min(52vh, 360px);
+    min-height: 200px;
+    object-fit: cover;
+  }
+
+  .mission-camera-controls {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .mission-capture-button,
+  .mission-stop-button {
+    width: 100%;
+    padding: 14px 16px;
+    font-size: 1rem;
+    min-height: 48px;
+  }
+
+  .mission-model-error {
+    max-width: none;
+    font-size: 0.95rem;
+  }
+
+  .scratch-modal {
+    padding: 12px;
+    padding-bottom: calc(12px + env(safe-area-inset-bottom, 0px));
+    align-items: flex-end;
+  }
+
+  .scratch-card-inner {
+    height: min(200px, 42vh);
+  }
+
+  .scratch-points {
+    font-size: 2.35rem;
+  }
+}
+

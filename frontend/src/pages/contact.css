@@ -1,0 +1,600 @@
+/* ==================== CONTACT PAGE STYLES ==================== */
+
+.contact-container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+  padding: 40px 20px;
+}
+
+/* Header Section */
+.contact-header {
+  text-align: center;
+  margin-bottom: 60px;
+  padding: 40px 20px;
+  animation: fadeInDown 0.8s ease-out;
+}
+
+.contact-header-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.contact-title {
+  font-size: 3.5rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, #ff7a00 0%, #ff9500 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 15px;
+  letter-spacing: -0.5px;
+}
+
+.contact-subtitle {
+  font-size: 1.2rem;
+  color: #555;
+  margin-bottom: 30px;
+  font-weight: 500;
+  line-height: 1.8;
+}
+
+.contact-header-divider {
+  width: 100px;
+  height: 4px;
+  background: linear-gradient(90deg, #ff7a00 0%, #ff9500 100%);
+  margin: 30px auto 0;
+  border-radius: 2px;
+}
+
+/* Mission Statement Section */
+.contact-mission {
+  margin-bottom: 80px;
+  padding: 0 20px;
+}
+
+.mission-box {
+  max-width: 900px;
+  margin: 0 auto;
+  background: white;
+  padding: 50px 40px;
+  border-radius: 15px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+  border-left: 5px solid #ff7a00;
+  backdrop-filter: blur(10px);
+}
+
+.mission-team-header {
+  max-width: 900px;
+  margin: 0 auto 50px;
+  background: white;
+  padding: 50px 40px;
+  border-radius: 15px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+  border-left: 5px solid #ff7a00;
+  backdrop-filter: blur(10px);
+}
+
+.mission-icon {
+  font-size: 3rem;
+  margin-bottom: 20px;
+  display: inline-block;
+  animation: bounce 2s infinite;
+}
+
+.mission-title {
+  font-size: 2rem;
+  color: #333;
+  margin-bottom: 20px;
+  font-weight: 700;
+}
+
+.mission-text {
+  font-size: 1rem;
+  color: #666;
+  line-height: 1.8;
+  margin-bottom: 15px;
+}
+
+.mission-text strong {
+  color: #ff7a00;
+  font-weight: 600;
+}
+
+.mission-subtext {
+  font-size: 0.95rem;
+  color: #777;
+  line-height: 1.8;
+  font-style: italic;
+}
+
+/* Team Section */
+.team-section {
+  margin-bottom: 80px;
+  padding: 0 20px;
+}
+
+.team-title {
+  font-size: 2.5rem;
+  text-align: center;
+  color: #333;
+  margin-bottom: 50px;
+  font-weight: 700;
+  position: relative;
+  padding-bottom: 20px;
+}
+
+.team-title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(90deg, #ff7a00 0%, #ff9500 100%);
+  border-radius: 2px;
+}
+
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Team Card */
+.team-card {
+  background: white;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  height: 100%;
+}
+
+.team-card:hover {
+  box-shadow: 0 15px 40px rgba(102, 126, 234, 0.2);
+  transform: translateY(-10px);
+}
+
+.card-inner {
+  padding: 40px 30px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background: linear-gradient(135deg, #ffffff 0%, #f9f9f9 100%);
+}
+
+.card-icon {
+  font-size: 3rem;
+  margin-bottom: 20px;
+  animation: float 3s ease-in-out infinite;
+}
+
+.card-name {
+  font-size: 1.5rem;
+  color: #333;
+  margin-bottom: 8px;
+  font-weight: 700;
+}
+
+.card-role {
+  font-size: 1rem;
+  color: #ff7a00;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.card-description {
+  font-size: 0.9rem;
+  color: #666;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  flex-grow: 1;
+}
+
+.card-contact {
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #eee;
+}
+
+.card-email {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #ff7a00;
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  word-break: break-word;
+}
+
+.card-email:hover {
+  color: #ff9500;
+  transform: translateX(3px);
+}
+
+.email-icon {
+  font-size: 1.2rem;
+}
+
+.card-social {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.social-icon {
+  width: 35px;
+  height: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: #f0f0f0;
+  color: #ff7a00;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.social-icon svg {
+  width: 18px;
+  height: 18px;
+}
+
+.social-icon:hover {
+  background: #ff7a00;
+  color: white;
+  transform: scale(1.1);
+}
+
+/* Institute Section */
+.institute-section {
+  margin-bottom: 80px;
+  padding: 0 20px;
+}
+
+.institute-box {
+  max-width: 800px;
+  margin: 0 auto;
+  background: linear-gradient(135deg, #ff7a00 0%, #ff9500 100%);
+  padding: 50px 40px;
+  border-radius: 15px;
+  color: white;
+  box-shadow: 0 10px 40px rgba(255, 122, 0, 0.3);
+}
+
+.institute-icon {
+  font-size: 3rem;
+  margin-bottom: 20px;
+  display: inline-block;
+}
+
+.institute-title {
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+  font-weight: 700;
+}
+
+.institute-text {
+  font-size: 1rem;
+  line-height: 1.8;
+  opacity: 0.95;
+}
+
+/* Contact CTA Section */
+.contact-cta-section {
+  margin-bottom: 80px;
+  padding: 0 20px;
+}
+
+.cta-box {
+  max-width: 900px;
+  margin: 0 auto;
+  background: white;
+  padding: 50px 40px;
+  border-radius: 15px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+  text-align: center;
+}
+
+.cta-text {
+  font-size: 1.1rem;
+  color: #666;
+  margin-bottom: 40px;
+  line-height: 1.6;
+}
+
+.contact-methods {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 30px;
+  margin-top: 40px;
+}
+
+.contact-method {
+  padding: 30px;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+
+.contact-method:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(255, 122, 0, 0.15);
+  background: linear-gradient(135deg, #ff7a00 0%, #ff9500 100%);
+  color: white;
+}
+
+.method-icon {
+  font-size: 2.5rem;
+  display: inline-block;
+  margin-bottom: 15px;
+}
+
+.contact-method h4 {
+  font-size: 1.1rem;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: inherit;
+}
+
+.contact-method p {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: inherit;
+  opacity: 0.9;
+}
+
+/* Final CTA Section */
+.contact-final-cta {
+  padding: 60px 20px;
+  background: linear-gradient(135deg, #ff7a00 0%, #ff9500 100%);
+  border-radius: 15px;
+  max-width: 900px;
+  margin: 60px auto;
+  text-align: center;
+  color: white;
+  box-shadow: 0 15px 40px rgba(255, 122, 0, 0.3);
+}
+
+.final-cta-content h2 {
+  font-size: 2.2rem;
+  margin-bottom: 15px;
+  font-weight: 700;
+}
+
+.final-cta-content p {
+  font-size: 1.1rem;
+  margin-bottom: 30px;
+  opacity: 0.95;
+  line-height: 1.6;
+}
+
+.cta-buttons {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.cta-button {
+  padding: 12px 35px;
+  font-size: 1rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  border: none;
+  display: inline-block;
+}
+
+.cta-button.primary {
+  background: white;
+  color: #ff7a00;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.cta-button.primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+  background: #f9f9f9;
+}
+
+.cta-button.secondary {
+  background: transparent;
+  color: white;
+  border: 2px solid white;
+}
+
+.cta-button.secondary:hover {
+  background: white;
+  color: #ff7a00;
+  transform: translateY(-3px);
+}
+
+/* Animations */
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .contact-title {
+    font-size: 2.2rem;
+  }
+
+  .contact-subtitle {
+    font-size: 1rem;
+  }
+
+  .mission-box,
+  .mission-team-header,
+  .cta-box {
+    padding: 30px 20px;
+  }
+
+  .mission-title,
+  .team-title,
+  .cta-title {
+    font-size: 1.5rem;
+  }
+
+  .team-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  .team-card {
+    max-width: 100%;
+  }
+
+  .contact-methods {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  .cta-buttons {
+    flex-direction: column;
+  }
+
+  .cta-button {
+    width: 100%;
+  }
+
+  .contact-final-cta {
+    padding: 40px 20px;
+    margin: 40px 20px;
+  }
+
+  .final-cta-content h2 {
+    font-size: 1.8rem;
+  }
+
+  .final-cta-content p {
+    font-size: 1rem;
+  }
+
+  .institute-box {
+    padding: 30px 20px;
+  }
+
+  .institute-title {
+    font-size: 1.3rem;
+  }
+
+  .institute-text {
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .contact-container {
+    padding: 20px 10px;
+  }
+
+  .contact-title {
+    font-size: 1.8rem;
+  }
+
+  .contact-subtitle {
+    font-size: 0.95rem;
+  }
+
+  .contact-header {
+    margin-bottom: 40px;
+    padding: 20px 10px;
+  }
+
+  .mission-box,
+  .cta-box {
+    padding: 20px 15px;
+    border-radius: 10px;
+  }
+
+  .mission-team-header {
+    padding: 20px 15px;
+    border-radius: 10px;
+    margin-bottom: 40px;
+  }
+
+  .team-grid {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  .card-inner {
+    padding: 25px 15px;
+  }
+
+  .card-name {
+    font-size: 1.2rem;
+  }
+
+  .contact-methods {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  .contact-method {
+    padding: 20px;
+  }
+
+  .contact-final-cta {
+    padding: 30px 15px;
+    margin: 30px 10px;
+  }
+
+  .final-cta-content h2 {
+    font-size: 1.4rem;
+  }
+
+  .mission-title,
+  .mission-text,
+  .mission-subtext {
+    font-size: 0.95rem;
+  }
+
+  .cta-buttons {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .cta-button {
+    width: 100%;
+    padding: 10px 20px;
+    font-size: 0.95rem;
+  }
+}
