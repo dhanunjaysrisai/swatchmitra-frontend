@@ -17,6 +17,5 @@ export function getApiBaseUrl() {
   if (hostname === 'localhost' || hostname === '127.0.0.1') {
     return `${protocol}//${hostname}:5000/api`
   }
-  // For deployed apps (e.g., Render), don't add port
-  return `${protocol}//${hostname}/api`
+return 'https://swatchmitra-backend.onrender.com/api'
 }
