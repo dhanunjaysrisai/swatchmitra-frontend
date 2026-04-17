@@ -51,10 +51,10 @@ function Login() {
       <nav className="navbar">
         <div className="navbar__content">
           <div className="navbar__left">
-            <img src="../images/slogon logo.png" alt="SwachhMitra Slogan" className="slogan-img" />
+            <img src={new URL('../images/slogon logo.png', import.meta.url).href} alt="SwachhMitra Slogan" className="slogan-img" />
           </div>
           <div className="navbar__right">
-            <img src="../images/swatchhmita logo.png" alt="SwachhMitra Logo" className="brand-img" />
+            <img src={new URL('../images/swatchhmita logo.png', import.meta.url).href} alt="SwachhMitra Logo" className="brand-img" />
           </div>
         </div>
       </nav>
@@ -111,14 +111,14 @@ function Login() {
                 <p className="text-muted">
                   Don't have an account? <Link to="/register">Register</Link>
                 </p>
-              </div>
+            a  </div>
             </form>
           </div>
 
           <div className="auth-media">
             <video
               className="auth-video"
-              src="../videos/maplogo.mp4"
+              src={new URL('../videos/maplogo.mp4', import.meta.url).href}
               autoPlay
               muted
               loop
