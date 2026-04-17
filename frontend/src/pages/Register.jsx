@@ -72,7 +72,7 @@ function Register() {
       <nav className="navbar">
         <div className="navbar__content">
           <div className="navbar__left">
-            <img src="../images/slogon logo.png" alt="SwachhMitra Slogan" className="slogan-img" />
+            <img src="../images/slogon logo.png" alt="Sssssssssssssssss" className="slogan-img" />
           </div>
           <div className="navbar__right">
             <img src="../images/swatchhmita logo.png" alt="SwachhMitra Logo" className="brand-img" />
