@@ -51,10 +51,10 @@ function Login() {
       <nav className="navbar">
         <div className="navbar__content">
           <div className="navbar__left">
-            <img src="/images/slogon logo.png" alt="SwachhMitra Slogan" className="slogan-img" />
+            <img src="../images/slogon logo.png" alt="SwachhMitra Slogan" className="slogan-img" />
           </div>
           <div className="navbar__right">
-            <img src="/images/swatchhmita logo.png" alt="SwachhMitra Logo" className="brand-img" />
+            <img src="../images/swatchhmita logo.png" alt="SwachhMitra Logo" className="brand-img" />
           </div>
         </div>
       </nav>
@@ -118,7 +118,7 @@ function Login() {
           <div className="auth-media">
             <video
               className="auth-video"
-              src="/videos/maplogo.mp4"
+              src="../videos/maplogo.mp4"
               autoPlay
               muted
               loop
