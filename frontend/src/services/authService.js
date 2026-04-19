@@ -31,9 +31,11 @@ api.interceptors.response.use(
       const reqUrl = error.config?.url || '';
       const pathname = window.location.pathname;
       const onAuthPage = pathname === '/login' || pathname === '/register';
-      const isAuthRequest = reqUrl.includes('/auth/login') || reqUrl.includes('/auth/register') || reqUrl.includes('/auth/profile');
+      const isAuthRequest =
+        reqUrl.includes('/api/auth/login') ||
+        reqUrl.includes('/api/auth/register') ||
+        reqUrl.includes('/api/auth/profile');
 
-      // Only auto-redirect on 401 when we're not on auth pages and it's not an auth request
       if (!onAuthPage && !isAuthRequest) {
         localStorage.removeItem('token');
         window.location.href = '/login';
@@ -46,46 +48,34 @@ api.interceptors.response.use(
 export const authService = {
   // Register user
   register: async (name, email, password) => {
-    try {
-      const response = await api.post('/auth/register', {
-        name,
-        email,
-        password,
-      });
-      return response.data;
-    } catch (error) {
-      throw error;
-    }
+    const response = await api.post('/api/auth/register', {
+      name,
+      email,
+      password,
+    });
+    return response.data;
   },
 
   // Login user
   login: async (email, password) => {
-    try {
-      const response = await api.post('/auth/login', {
-        email,
-        password,
-      });
-      return response.data;
-    } catch (error) {
-      throw error;
-    }
+    const response = await api.post('/api/auth/login', {
+      email,
+      password,
+    });
+    return response.data;
   },
 
-  // Get user profile (for token validation)
+  // Get user profile
   getUserProfile: async (token) => {
-    try {
-      const response = await api.get('/auth/profile', {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      });
-      return response.data.data;
-    } catch (error) {
-      throw error;
-    }
+    const response = await api.get('/api/auth/profile', {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+    return response.data.data;
   },
 
-  // Logout user (client-side only)
+  // Logout user
   logout: () => {
     localStorage.removeItem('token');
   },
