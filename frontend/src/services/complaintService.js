@@ -27,16 +27,14 @@ class ComplaintService {
   async submitComplaint(complaintData) {
     try {
       console.log('Submitting complaint with data:', complaintData);
-      
+
       const formData = new FormData();
-      
-      // Add text fields
+
       formData.append('title', complaintData.title);
       formData.append('description', complaintData.description);
       formData.append('location', complaintData.location);
       formData.append('category', complaintData.category);
-      
-      // Add image if provided
+
       if (complaintData.image) {
         formData.append('image', complaintData.image);
       }
@@ -46,14 +44,13 @@ class ComplaintService {
         console.log(key, value);
       }
 
-      const response = await fetch(`${getApiBaseUrl()}/complaints`, {
+      const response = await fetch(`${getApiBaseUrl()}/api/complaints`, {
         method: 'POST',
         headers: this.getFileUploadHeaders(),
         body: formData
       });
 
       console.log('Response status:', response.status);
-      console.log('Response headers:', response.headers);
 
       if (!response.ok) {
         const errorData = await response.json();
@@ -64,6 +61,7 @@ class ComplaintService {
       const result = await response.json();
       console.log('Success response:', result);
       return result;
+
     } catch (error) {
       console.error('Error submitting complaint:', error);
       throw error;
@@ -73,7 +71,7 @@ class ComplaintService {
   // Get user's complaints
   async getMyComplaints(page = 1, limit = 10, status = null) {
     try {
-      let url = `${getApiBaseUrl()}/complaints/my-complaints?page=${page}&limit=${limit}`;
+      let url = `${getApiBaseUrl()}/api/complaints/my-complaints?page=${page}&limit=${limit}`;
       if (status) {
         url += `&status=${status}`;
       }
@@ -89,6 +87,7 @@ class ComplaintService {
       }
 
       return await response.json();
+
     } catch (error) {
       console.error('Error fetching complaints:', error);
       throw error;
@@ -98,7 +97,7 @@ class ComplaintService {
   // Get a single complaint
   async getComplaint(complaintId) {
     try {
-      const response = await fetch(`${getApiBaseUrl()}/complaints/${complaintId}`, {
+      const response = await fetch(`${getApiBaseUrl()}/api/complaints/${complaintId}`, {
         method: 'GET',
         headers: this.getHeaders()
       });
@@ -109,6 +108,7 @@ class ComplaintService {
       }
 
       return await response.json();
+
     } catch (error) {
       console.error('Error fetching complaint:', error);
       throw error;
@@ -118,7 +118,7 @@ class ComplaintService {
   // Update complaint status (admin only)
   async updateComplaintStatus(complaintId, statusData) {
     try {
-      const response = await fetch(`${getApiBaseUrl()}/complaints/${complaintId}/status`, {
+      const response = await fetch(`${getApiBaseUrl()}/api/complaints/${complaintId}/status`, {
         method: 'PUT',
         headers: this.getHeaders(),
         body: JSON.stringify(statusData)
@@ -130,6 +130,7 @@ class ComplaintService {
       }
 
       return await response.json();
+
     } catch (error) {
       console.error('Error updating complaint status:', error);
       throw error;
@@ -139,9 +140,8 @@ class ComplaintService {
   // Get all complaints (admin only)
   async getAllComplaints(page = 1, limit = 10, filters = {}) {
     try {
-      let url = `${getApiBaseUrl()}/complaints?page=${page}&limit=${limit}`;
-      
-      // Add filters to URL
+      let url = `${getApiBaseUrl()}/api/complaints?page=${page}&limit=${limit}`;
+
       Object.keys(filters).forEach(key => {
         if (filters[key]) {
           url += `&${key}=${filters[key]}`;
@@ -159,6 +159,7 @@ class ComplaintService {
       }
 
       return await response.json();
+
     } catch (error) {
       console.error('Error fetching all complaints:', error);
       throw error;
@@ -168,7 +169,7 @@ class ComplaintService {
   // Get complaint statistics (admin only)
   async getComplaintStats() {
     try {
-      const response = await fetch(`${getApiBaseUrl()}/complaints/stats`, {
+      const response = await fetch(`${getApiBaseUrl()}/api/complaints/stats`, {
         method: 'GET',
         headers: this.getHeaders()
       });
@@ -179,6 +180,7 @@ class ComplaintService {
       }
 
       return await response.json();
+
     } catch (error) {
       console.error('Error fetching complaint statistics:', error);
       throw error;
