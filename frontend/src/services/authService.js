@@ -1,17 +1,17 @@
 import axios from 'axios';
 import { getApiBaseUrl } from '../config/apiBase';
 
-// Create axios instance with default config
+// Create axios instance — baseURL set per request so VITE_API_URL / deploy changes always apply
 const api = axios.create({
-  baseURL: getApiBaseUrl(),
   headers: {
     'Content-Type': 'application/json',
   },
 });
 
-// Add request interceptor to include token
+// Add request interceptor to include token and resolve API root (avoids double /api/api/)
 api.interceptors.request.use(
   (config) => {
+    config.baseURL = getApiBaseUrl();
     const token = localStorage.getItem('token');
     if (token) {
       config.headers.Authorization = `Bearer ${token}`;
@@ -31,11 +31,9 @@ api.interceptors.response.use(
       const reqUrl = error.config?.url || '';
       const pathname = window.location.pathname;
       const onAuthPage = pathname === '/login' || pathname === '/register';
-      const isAuthRequest =
-        reqUrl.includes('/api/auth/login') ||
-        reqUrl.includes('/api/auth/register') ||
-        reqUrl.includes('/api/auth/profile');
+      const isAuthRequest = reqUrl.includes('/auth/login') || reqUrl.includes('/auth/register') || reqUrl.includes('/auth/profile');
 
+      // Only auto-redirect on 401 when we're not on auth pages and it's not an auth request
       if (!onAuthPage && !isAuthRequest) {
         localStorage.removeItem('token');
         window.location.href = '/login';
@@ -48,34 +46,46 @@ api.interceptors.response.use(
 export const authService = {
   // Register user
   register: async (name, email, password) => {
-    const response = await api.post('/api/auth/register', {
-      name,
-      email,
-      password,
-    });
-    return response.data;
+    try {
+      const response = await api.post('/auth/register', {
+        name,
+        email,
+        password,
+      });
+      return response.data;
+    } catch (error) {
+      throw error;
+    }
   },
 
   // Login user
   login: async (email, password) => {
-    const response = await api.post('/api/auth/login', {
-      email,
-      password,
-    });
-    return response.data;
+    try {
+      const response = await api.post('/auth/login', {
+        email,
+        password,
+      });
+      return response.data;
+    } catch (error) {
+      throw error;
+    }
   },
 
-  // Get user profile
+  // Get user profile (for token validation)
   getUserProfile: async (token) => {
-    const response = await api.get('/api/auth/profile', {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    });
-    return response.data.data;
+    try {
+      const response = await api.get('/auth/profile', {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      return response.data.data;
+    } catch (error) {
+      throw error;
+    }
   },
 
-  // Logout user
+  // Logout user (client-side only)
   logout: () => {
     localStorage.removeItem('token');
   },
