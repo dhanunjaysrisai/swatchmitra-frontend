@@ -1,21 +1,26 @@
 /**
- * Backend API base (e.g. http://192.168.1.5:5000/api).
- * - Set VITE_API_URL in .env for production or custom ports.
- * - Otherwise uses the same hostname as the current page with port 5000 so
- *   opening the app at http://<your-LAN-ip>:5173 talks to http://<same-ip>:5000
- *   instead of the device’s own localhost (which caused "Failed to fetch").
+ * Returns the backend base URL including `/api` (same convention as axios `baseURL` in authService).
+ * `VITE_API_URL` may be set to either `https://host` or `https://host/api` on Render — both work.
  */
 export function getApiBaseUrl() {
   const fromEnv = import.meta.env.VITE_API_URL
+
+  let root
   if (fromEnv != null && String(fromEnv).trim() !== '') {
-    return String(fromEnv).replace(/\/$/, '')
+    root = String(fromEnv).trim().replace(/\/+$/, '')
+  } else if (typeof window === 'undefined') {
+    root = 'http://localhost:5000'
+  } else {
+    const { protocol, hostname } = window.location
+    if (hostname === 'localhost' || hostname === '127.0.0.1') {
+      root = `${protocol}//${hostname}:5000`
+    } else {
+      root = 'https://swatchmitra-backend.onrender.com'
+    }
   }
-  if (typeof window === 'undefined') {
-    return 'http://localhost:5000/api'
+
+  if (!root.endsWith('/api')) {
+    return `${root}/api`
   }
-  const { protocol, hostname } = window.location
-  if (hostname === 'localhost' || hostname === '127.0.0.1') {
-    return `${protocol}//${hostname}:5000/api`
-  }
-return 'https://swatchmitra-backend.onrender.com/api'
+  return root
 }
