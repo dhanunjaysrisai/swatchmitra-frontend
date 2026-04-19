@@ -72,10 +72,10 @@ function Register() {
       <nav className="navbar">
         <div className="navbar__content">
           <div className="navbar__left">
-            <img src={new URL('../images/slogon logo.png', import.meta.url).href} alt="SwachhMitra Slogan" className="slogan-img" />
+            <img src={new URL('../../images/slogon logo.png', import.meta.url).href} alt="SwachhMitra Slogan" className="slogan-img" />
           </div>
           <div className="navbar__right">
-            <img src={new URL('../images/swatchhmita logo.png', import.meta.url).href} alt="SwachhMitra Logo" className="brand-img" />
+            <img src={new URL('../../images/swatchhmita logo.png', import.meta.url).href} alt="SwachhMitra Logo" className="brand-img" />
           </div>
         </div>
       </nav>
@@ -167,7 +167,7 @@ function Register() {
           <div className="auth-media">
             <video
               className="auth-video"
-              src={new URL('../videos/onesteplogo.mp4', import.meta.url).href}
+              src={new URL('../../videos/onesteplogo.mp4', import.meta.url).href}
               autoPlay
               muted
               loop
